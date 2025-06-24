@@ -21,3 +21,4 @@ RUN python -m nltk.downloader punkt
 
 # Start the FastAPI app on dynamic port (Fly sets PORT=8080)
 CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8080"]
+
