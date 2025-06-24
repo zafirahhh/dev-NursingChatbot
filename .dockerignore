@@ -8,7 +8,6 @@ __pycache__/
 *.zip
 *.tar
 *.csv
-*.txt
 
 # Ignore model and data directories
 data/
