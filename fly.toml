@@ -8,8 +8,11 @@ primary_region = 'sin'
 
 [build]
 
+[env]
+PORT = "8000"  # Tells your app the expected port
+
 [http_service]
-  internal_port = 8080
+  internal_port = 8000  # Match this to what Uvicorn uses
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
