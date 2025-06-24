@@ -8,6 +8,9 @@ __pycache__/
 *.zip
 *.tar
 *.csv
+# Ignore only large nursing guide text file
+data/nursing_guide_cleaned.txt
+
 
 # Ignore model and data directories
 data/
