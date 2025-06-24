@@ -5,7 +5,9 @@ FROM python:3.10
 WORKDIR /app
 
 # Copy all files into the container
+COPY requirements.txt .  # ensure requirements.txt gets copied first
 COPY . /app
+
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6
