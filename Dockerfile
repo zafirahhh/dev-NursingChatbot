@@ -16,5 +16,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Download NLTK data
 RUN python -m nltk.downloader punkt
 
-# Run the FastAPI app using Uvicorn
-CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8080"]
+# Run the FastAPI app using backend.py (dynamic port support)
+CMD ["python", "backend.py"]
