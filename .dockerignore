@@ -1,1 +1,20 @@
-fly.toml
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore data and large files
+*.pdf
+*.pt
+*.zip
+*.tar
+*.csv
+*.txt
+
+# Ignore model and data directories
+data/
+models/
+
+# Ignore Git and other dev files
+.git/
+.env
+*.log
