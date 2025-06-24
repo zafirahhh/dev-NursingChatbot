@@ -1,0 +1,90 @@
+/* KKH Nursing Chatbot Styles */
+:root {
+  --primary: #4F8FC0;
+  --secondary: #A7D8DE;
+  --accent: #F7C5CC;
+  --background: #FFFFFF;
+  --text: #333A40;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: var(--primary);
+  color: var(--background);
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 80vh;
+  padding: 2rem 1rem;
+}
+
+#chatbot {
+  background: var(--secondary);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(79,143,192,0.1);
+  max-width: 400px;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+#chat-window {
+  background: var(--background);
+  border-radius: 0.5rem;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--primary);
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#user-input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  background: var(--primary);
+  color: var(--background);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: var(--accent);
+  color: var(--text);
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

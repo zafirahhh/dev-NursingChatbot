@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KKH Nursing Chatbot</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>KKH Nursing Chatbot</h1>
+    <p>Your 24/7 virtual nurse assistant for quick healthcare queries and support.</p>
+  </header>
+  <main>
+    <section id="chatbot">
+      <div id="chat-window" aria-live="polite" tabindex="0"></div>
+      <form id="chat-form" autocomplete="off">
+        <label for="user-input" class="visually-hidden">Type your question</label>
+        <input type="text" id="user-input" name="user-input" placeholder="Ask a question..." aria-label="Ask a question" required />
+        <button type="submit" aria-label="Send">Send</button>
+      </form>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
