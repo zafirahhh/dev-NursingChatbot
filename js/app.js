@@ -1,7 +1,7 @@
 // --- Sidebar Grouped Sessions UI Logic for new sidebar structure ---
-const BACKEND_URL_FINAL = 'http://localhost:8000/ask';
-const QUIZ_URL_FINAL = 'http://localhost:8000/quiz';
-const QUIZ_EVAL_URL_FINAL = 'http://localhost:8000/quiz/evaluate';
+const BACKEND_URL_FINAL = 'http://127.0.0.1:8000/ask';
+const QUIZ_URL_FINAL = 'http://127.0.0.1:8000/quiz';
+const QUIZ_EVAL_URL_FINAL = 'http://127.0.0.1:8000/quiz/evaluate';
 
 document.addEventListener('DOMContentLoaded', () => {
   const chatWindow = document.getElementById('chat-window');
