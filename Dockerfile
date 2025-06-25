@@ -18,7 +18,8 @@ RUN apt-get update && \
     apt-get install -y gcc libglib2.0-0 libsm6 libxext6 libxrender-dev && \
     rm -rf /var/lib/apt/lists/*
 
-RUN python -m nltk.downloader punkt
+# Pre-download NLTK punkt data to the correct location for production
+RUN python -m nltk.downloader -d /usr/local/share/nltk_data punkt
 
 EXPOSE 8080
 
