@@ -23,6 +23,9 @@ RUN apt-get update && \
 # Pre-download NLTK punkt data
 RUN python -m nltk.downloader punkt
 
+# List contents of /app/data to verify nursing_guide_cleaned.txt is present
+RUN ls -l /app/data
+
 EXPOSE 8080
 
 # Run the FastAPI server using Uvicorn when the container starts
