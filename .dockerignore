@@ -1,13 +1,33 @@
+# Python cache and bytecode
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# OS & Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.git/
+
+# Env and logs
+.env
+*.env
+*.log
+
+# Ignore unused large files
 *.pdf
 *.pt
 *.zip
 *.tar
 *.csv
 
-# DO NOT ignore data/
-# .git and secrets
-.git/
-.env
-*.log
+# ⚠️ DO NOT ignore the data folder or the nursing guide text file
+# ❌ NO lines like:
+# data/
+# data/nursing_guide_cleaned.txt
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
