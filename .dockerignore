@@ -1,19 +1,13 @@
-# Ignore Python cache
 __pycache__/
 *.pyc
-
-# Ignore data and large files
 *.pdf
 *.pt
 *.zip
 *.tar
 *.csv
 
-
-# Ignore model and data directories
-models/
-
-# Ignore Git and other dev files
+# DO NOT ignore data/
+# .git and secrets
 .git/
 .env
 *.log
