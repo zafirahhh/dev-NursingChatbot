@@ -331,8 +331,10 @@ document.addEventListener('DOMContentLoaded', () => {
         appendGroupedMessage('bot', data.full);
       } else if (data.quiz) {
         appendGroupedMessage('bot', '📝 Quiz Loaded');
+      } else if (data.error) {
+        appendGroupedMessage('bot', '❌ ' + data.error);
       } else {
-        appendGroupedMessage('bot', '⚠️ Unexpected response from backend.');
+        appendGroupedMessage('bot', '⚠️ Unexpected response from backend: ' + JSON.stringify(data));
       }
     } catch (err) {
       removeTyping();
