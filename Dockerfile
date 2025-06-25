@@ -1,32 +1,25 @@
-# Use an official lightweight Python image
 FROM python:3.10-slim
 
-# Set environment variables to prevent .pyc files and enable clean logging
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Install dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
-# Copy all project files into the container
-COPY . .
+COPY backend.py .
+COPY index.html .
+COPY js/ js/
+COPY css/ css/
+COPY data/nursing_guide_cleaned.txt data/
 
-# Install system dependencies for nltk and sentence-transformers
 RUN apt-get update && \
-    apt-get install -y gcc git libglib2.0-0 libsm6 libxext6 libxrender-dev && \
+    apt-get install -y gcc libglib2.0-0 libsm6 libxext6 libxrender-dev && \
     rm -rf /var/lib/apt/lists/*
 
-# Pre-download NLTK punkt data
 RUN python -m nltk.downloader punkt
-
-# List contents of /app/data to verify nursing_guide_cleaned.txt is present
-RUN ls -l /app/data
 
 EXPOSE 8080
 
-# Run the FastAPI server using Uvicorn when the container starts
 CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8080"]
