@@ -1,24 +1,19 @@
-# Use the official Python image
-FROM python:3.10
+# Use an official lightweight Python image
+FROM python:3.10-slim
 
-# Set working directory
+# Set environment variables to prevent .pyc files and enable clean logging
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy only requirements first to leverage Docker caching
+# Install dependencies
 COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Install system-level dependencies
-RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
+# Copy all project files into the container
 COPY . .
 
-# Download NLTK data
-RUN python -m nltk.downloader punkt
-
-# Start the FastAPI app on dynamic port (Fly sets PORT=8080)
+# Run the FastAPI server using Uvicorn when the container starts
 CMD ["uvicorn", "backend:app", "--host", "0.0.0.0", "--port", "8080"]
-

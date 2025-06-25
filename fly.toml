@@ -9,7 +9,7 @@ primary_region = 'sin'
 [build]
 
 [env]
-PORT = "8000"  # Tells your app the expected port
+PORT = "8080" # Tells your app the expected port
 
 [http_service]
   internal_port = 8080  # Match this to what Uvicorn uses
