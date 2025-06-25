@@ -322,7 +322,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      appendGroupedMessage('bot', 'DEBUG: ' + JSON.stringify(data)); // Always show full backend response
       removeTyping();
       if (data.answer) {
         appendGroupedMessage('bot', data.answer);
