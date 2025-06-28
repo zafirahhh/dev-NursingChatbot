@@ -15,6 +15,7 @@ from typing import List
 import requests
 from pydantic import BaseModel
 import numpy as np
+import requests
 from dotenv import load_dotenv
 
 # === CONFIGURATION ===
