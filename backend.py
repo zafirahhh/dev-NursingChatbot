@@ -315,24 +315,24 @@ headers = {
     "Authorization": f"Bearer {HF_API_TOKEN}"  # ✅ Missing "Bearer"
 }
 
-def generate_with_zephyr(prompt: str, model: str = HF_MODEL) -> str:
-    try:
-        payload = {
-            "inputs": prompt,
-            "parameters": {
-                "do_sample": True,
-                "top_p": 0.95,
-                "temperature": 0.7,
-                "max_new_tokens": 512
-            }
+def generate_with_zephyr(prompt: str):
+    payload = {
+        "inputs": prompt,
+        "parameters": {
+            "do_sample": True,
+            "top_p": 0.95,
+            "temperature": 0.7,
+            "max_new_tokens": 512
         }
+    }
+    try:
         response = requests.post(HF_API_URL, headers=headers, json=payload)
         if response.status_code == 200:
-            return response.json()[0]["generated_text"].strip()
+            return response.json()[0]["generated_text"]
         else:
-            return f"⚠️ HF generation failed. Status {response.status_code} - {response.text}"
+            return f"⚠️ Generation failed: {response.status_code} - {response.text}"
     except Exception as e:
-        return f"❌ Error contacting Hugging Face: {e}"
+        return f"❌ Error: {e}"
 
 @app.get("/")
 def read_root():
