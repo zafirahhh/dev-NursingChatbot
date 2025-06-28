@@ -18,7 +18,6 @@ import numpy as np
 from dotenv import load_dotenv
 
 # === CONFIGURATION ===
-TAILSCALE_BASE_URL = "http://100.96.212.48:1234"
 EMBEDDING_MODEL = "text-embedding-nomic-embed-text-v1.5"
 CHAT_MODEL = "huggingface4_-_zephyr-7b-beta"
 
