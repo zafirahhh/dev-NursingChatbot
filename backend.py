@@ -360,31 +360,6 @@ Answer:
     answer = generate_with_zephyr(prompt)
     return {"answer": answer}
 
-@app.post("/ask")
-async def ask_question(request: QueryRequest):
-    user_query = request.query
-    top_k = 3
-    query_embedding = model.encode(user_query, convert_to_tensor=True)
-    similarities = util.pytorch_cos_sim(query_embedding, chunk_embeddings)[0]
-    top_indices = similarities.topk(k=top_k).indices.tolist()
-    retrieved_chunks = [chunks[i] for i in top_indices]
-    context = "\n\n".join(retrieved_chunks[:3])  # Top 3 chunks joined together
-
-
-    # Compose prompt for Zephyr
-    prompt = f"""You are a helpful paediatric nurse assistant chatbot. Use the context below to answer the user's question as accurately and logically as possible.
-
-Context:
-{context}
-
-Question:
-{user_query}
-
-Answer:"""
-
-    answer = generate_with_zephyr(prompt)
-    return {"answer": answer}
-
 
 @app.post("/search")
 async def search(query: QueryRequest):
