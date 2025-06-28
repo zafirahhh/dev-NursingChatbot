@@ -30,7 +30,7 @@ source eb-env/bin/activate  # On Windows: eb-env\Scripts\activate
 pip install -r requirements.txt
 
 # Run the server
-python -m uvicorn backend:app --host 0.0.0.0 --port 8000 --reload
+python -m uvicorn backend:app --host 0.0.0.0 --port 8080 --reload
 ```
 
 ## Deployment URLs
