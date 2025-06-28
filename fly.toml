@@ -11,7 +11,6 @@ primary_region = "sin"
 PORT = "8080"  # Tells your app the expected port
 
 [experimental]
-  [experimental]
   cmd = ["python", "backend.py"]
   entrypoint = []
   allowed_public_ports = []
