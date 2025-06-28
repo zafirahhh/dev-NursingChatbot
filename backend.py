@@ -66,7 +66,7 @@ def get_model():
     model_name = "nomic-ai/nomic-embed-text-v1"
     cache_dir = os.environ.get("HF_HOME", "/tmp/huggingface")
     os.makedirs(cache_dir, exist_ok=True)
-    return SentenceTransformer(model_name, cache_folder=cache_dir)
+    return SentenceTransformer(model_name, cache_folder=cache_dir, trust_remote_code=True)
 
 model = get_model()
 chunk_embeddings = model.encode(chunks, convert_to_tensor=True)
