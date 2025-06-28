@@ -63,10 +63,9 @@ chunks = load_chunks_from_text(text)
 
 # === Load Model and Chunk Embeddings ===
 def get_model():
-    model_name = "nomic-ai/nomic-embed-text-v1"
     cache_dir = os.environ.get("HF_HOME", "/tmp/huggingface")
     os.makedirs(cache_dir, exist_ok=True)
-    return SentenceTransformer(model_name, cache_folder=cache_dir, trust_remote_code=True)
+    return SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L3-v2")
 
 model = get_model()
 chunk_embeddings = model.encode(chunks, convert_to_tensor=True)
