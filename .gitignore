@@ -1,0 +1,17 @@
+# Ignore Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Ignore environment secrets
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Fly.io logs if any
+fly.toml.old
+
+# VS Code settings (optional)
+.vscode/

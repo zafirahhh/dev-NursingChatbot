@@ -15,6 +15,7 @@ from typing import List
 import requests
 from pydantic import BaseModel
 import numpy as np
+from dotenv import load_dotenv
 
 # === CONFIGURATION ===
 TAILSCALE_BASE_URL = "http://100.96.212.48:1234"
@@ -23,6 +24,9 @@ CHAT_MODEL = "huggingface4_-_zephyr-7b-beta"
 
 nltk.data.path.append("/usr/local/share/nltk_data")
 nltk.download('punkt')
+
+# Load environment variables from .env file
+load_dotenv()
 
 # === FastAPI Setup ===
 app = FastAPI()
